@@ -8,26 +8,31 @@ import xyz.morlotti.escapegame.mode.ModeDual;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class EscapeGame
-{
+public class EscapeGame {
     public final Config config = new Config();
 
-    public boolean showMenu()
-    {
+    public static void main(String[] args) {
+        new EscapeGame().start();
+
+//      EscapeGame escapeGame = new EscapeGame();
+//      escapeGame.start();
+
+        System.exit(0);
+    }
+
+    public boolean showMenu() {
         System.out.println("Veuillez choisir un mode : 1- Défenseur, 2- Challenger, 3- Duel, 4- Quitter");
 
         Scanner sc = new Scanner(System.in);
 
-        try
-        {
+        try {
             int choiceOfGameMode = sc.nextInt();
 
             AbstractMode mode;
 
             int result;
 
-            switch(choiceOfGameMode)
-            {
+            switch (choiceOfGameMode) {
                 case 1:
                     System.out.println("Vous avez choisi le mode Défenseur\nBon jeux !\n");
                     mode = new ModeDefender(config);
@@ -55,8 +60,7 @@ public class EscapeGame
                     result = -99999;
             }
 
-            switch(result)
-            {
+            switch (result) {
                 case AbstractMode.AI_WON:
                     System.out.println("L'IA a gagnée ;-)\n");
                     break;
@@ -66,35 +70,20 @@ public class EscapeGame
                 case AbstractMode.NOBODY_WON:
                     System.out.println("Oups... perdu :-(\n");
             }
-        }
-        catch(InputMismatchException e)
-        {
+        } catch (InputMismatchException e) {
             System.out.println("Vous devez choisir un mode entre les 4 proposés :-)\nMerci de ressaisir votre choix !");
         }
 
         return true;
     }
 
-    public void start()
-    {
+    public void start() {
         config.load();
 
-        while(true)
-        {
-            if(showMenu() == false)
-            {
+        while (true) {
+            if (showMenu() == false) {
                 break;
             }
         }
-    }
-
-    public static void main(String[] args)
-    {
-        new EscapeGame().start();
-
-//      EscapeGame escapeGame = new EscapeGame();
-//      escapeGame.start();
-
-        System.exit(0);
     }
 }
