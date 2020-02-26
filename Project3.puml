@@ -1,0 +1,68 @@
+@startuml
+
+Class EscapeGame {
+config: Config
+menu(): boolean
+start(): void
+}
+
+class Config {
+
+reload(): void
+}
+
+abstract class AbstractMode {
+config: Config
+user: AbstractUser
+readCombination(): int[]
+generateCombination(): int[]
+start(): void
+}
+
+class ModeChallenger {
+config: Config
+start(): void
+}
+
+class ModeDefender {
+config: Config
+start(): void
+}
+
+class ModeDual {
+config: Config
+start(): void
+}
+
+class Dichotomy {
+???(): ???
+}
+
+abstract class AbstractUser {
+getCombinationAsString(): String
+}
+
+class Human {
+
+}
+
+class AI{
+
+}
+
+AbstractMode <|--- ModeChallenger
+AbstractMode <|--- ModeDefender
+AbstractMode <|--- ModeDual
+
+AbstractUser <|--- AI
+AbstractUser <|--- Human
+
+EscapeGame -- AbstractMode
+
+Dichotomy -- AI
+
+EscapeGame *-- Config
+
+AbstractMode -- AbstractUser
+
+@enduml
