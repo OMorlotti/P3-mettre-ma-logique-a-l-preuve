@@ -11,6 +11,10 @@ class Config {
 reload(): void
 }
 
+class Log {
+
+}
+
 abstract class AbstractMode {
 config: Config
 user: AbstractUser
@@ -34,21 +38,19 @@ config: Config
 start(): void
 }
 
-class Dichotomy {
-???(): ???
-}
 
 abstract class AbstractUser {
 getCombinationAsString(): String
+}
+
+class BumbAI {
+
 }
 
 class Human {
 
 }
 
-class AI{
-
-}
 
 AbstractMode <|--- ModeChallenger
 AbstractMode <|--- ModeDefender
@@ -57,9 +59,10 @@ AbstractMode <|--- ModeDual
 AbstractUser <|--- AI
 AbstractUser <|--- Human
 
-EscapeGame -- AbstractMode
+AI <|--- BumbAI
 
-Dichotomy -- AI
+EscapeGame -- AbstractMode
+EscapeGame -- Log
 
 EscapeGame *-- Config
 
