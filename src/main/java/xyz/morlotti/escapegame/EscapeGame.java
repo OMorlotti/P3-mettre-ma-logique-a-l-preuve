@@ -1,5 +1,6 @@
 package xyz.morlotti.escapegame;
 
+import org.apache.logging.log4j.Logger;
 import xyz.morlotti.escapegame.mode.AbstractMode;
 import xyz.morlotti.escapegame.mode.ModeChallenger;
 import xyz.morlotti.escapegame.mode.ModeDefender;
@@ -10,6 +11,8 @@ import java.util.Scanner;
 
 public class EscapeGame
 {
+    private Logger m_logger;
+
     public final Config m_config = new Config();
 
     public boolean showMenu()
@@ -29,19 +32,22 @@ public class EscapeGame
             switch(choiceOfGameMode)
             {
                 case 1:
-                    System.out.println("Vous avez choisi le mode Défenseur\nBon jeux !\n");
+                    m_logger.info("Nouvelle partie en mode \"défenseur\"");
+                    System.out.println("Vous avez choisi le mode \"défenseur\"\nBon jeux !\n");
                     mode = new ModeDefender(m_config);
                     result = mode.start();
                     break;
 
                 case 2:
-                    System.out.println("Vous avez choisi le mode Challenger\nBon jeux !\n");
+                    m_logger.info("Nouvelle partie en mode \"challenger\"");
+                    System.out.println("Vous avez choisi le mode \"challenger\"\nBon jeux !\n");
                     mode = new ModeChallenger(m_config);
                     result = mode.start();
                     break;
 
                 case 3:
-                    System.out.println("Vous avez choisi le mode Duel !\nBon jeux !\n");
+                    m_logger.info("Nouvelle partie en mode \"duel\"");
+                    System.out.println("Vous avez choisi le mode \"duel\" !\nBon jeux !\n");
                     mode = new ModeDual(m_config);
                     result = mode.start();
                     break;
@@ -58,13 +64,16 @@ public class EscapeGame
             switch(result)
             {
                 case AbstractMode.AI_WON:
+                    m_logger.info("L'IA a gagnée");
                     System.out.println("L'IA a gagnée ;-)\n");
                     break;
                 case AbstractMode.HUMAN_WON:
+                    m_logger.info("Le joueur a gagnée");
                     System.out.println("Le joueur a gagné :-)\n");
                     break;
                 case AbstractMode.NOBODY_WON:
-                    System.out.println("Oups... perdu :-(\n");
+                    m_logger.info("Tout le monde a perdu");
+                    System.out.println("Oups... Tout le monde a perdu :-(\n");
             }
         }
         catch(InputMismatchException e)
@@ -78,6 +87,8 @@ public class EscapeGame
     public void start()
     {
         m_config.load();
+
+        m_logger = Log.getLogger("EscapeGame", m_config.isDeveloperMode());
 
         while(true)
         {

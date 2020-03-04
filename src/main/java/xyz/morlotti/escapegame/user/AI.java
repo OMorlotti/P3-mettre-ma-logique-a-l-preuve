@@ -1,11 +1,17 @@
 package xyz.morlotti.escapegame.user;
 
+import java.util.Arrays;
 import java.util.Random;
 
+import org.apache.logging.log4j.Logger;
+
 import xyz.morlotti.escapegame.Config;
+import xyz.morlotti.escapegame.Log;
 
 public class AI extends AbstractUser
 {
+	protected final Logger m_logger;
+
 	// Dichotomy
 	private final int START = 0;
 	private final int STOP = 10;
@@ -22,6 +28,8 @@ public class AI extends AbstractUser
 	public AI(Config config)
 	{
 		super(config);
+
+		m_logger = Log.getLogger("AI", config.isDeveloperMode());
 
 		int length = config.getCombinationLength();
 
@@ -51,6 +59,8 @@ public class AI extends AbstractUser
 			// Stockage du nombre aléatoire en cours dans le tableau combination[], "i" vaudra successivement 0, 1, 2, 3
 			combination[i] = randomNum;
 		}
+
+		m_logger.info(Arrays.toString(combination));
 
 		return combination;
 	}
