@@ -1,6 +1,8 @@
 package xyz.morlotti.escapegame.mode;
 
 import xyz.morlotti.escapegame.Config;
+import xyz.morlotti.escapegame.user.AbstractUser;
+import xyz.morlotti.escapegame.user.BumbAI;
 import xyz.morlotti.escapegame.user.Human;
 
 public class ModeChallenger extends AbstractMode
@@ -14,9 +16,10 @@ public class ModeChallenger extends AbstractMode
 	{
 		System.out.println("Démarrage du mode Challenger");
 
-		Human user = new Human(m_config);
+		AbstractUser ai = new BumbAI(m_config);
+		AbstractUser human = new Human(m_config);
 
-		int[] combination = generateCombination();
+		int[] combination = ai.generateCombination();
 
 		int[] comparison = generateComparison();
 
@@ -24,7 +27,7 @@ public class ModeChallenger extends AbstractMode
 		{
 			System.out.println("Tentative numéro " + (i + 1));
 
-			if(playATurn(user, combination, comparison) == true)
+			if(playATurn(human, combination, comparison) == true)
 			{
 				return AbstractMode.HUMAN_WON;
 			}

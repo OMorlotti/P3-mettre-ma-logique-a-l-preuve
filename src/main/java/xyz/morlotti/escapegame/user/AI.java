@@ -1,17 +1,21 @@
 package xyz.morlotti.escapegame.user;
 
+import java.util.Random;
+
 import xyz.morlotti.escapegame.Config;
 
 public class AI extends AbstractUser
 {
+	// Dichotomy
 	private final int START = 0;
 	private final int STOP = 10;
 
 	private final int CENTER = (STOP - START) / 2;
 
+	// Définition de tableaux contenant les valeurs limites
 	private final int[] m_startValues;
 	private final int[] m_stopValues;
-	private final int[] m_lastValues;
+	protected final int[] m_lastValues;
 
 	private boolean m_firstIter;
 
@@ -28,6 +32,29 @@ public class AI extends AbstractUser
 		reset();
 	}
 
+	public int[] generateCombination()
+	{
+		int low = 0;
+		int high = 10;
+
+		// Générateur de nombres aléatoires
+		Random numberChosenByRandom = new Random();
+
+		// Création d'un tableau qui contient autant d'entrées que ce que retourne la méthode getCombinationLength()
+		int[] combination = new int[config.getCombinationLength()];
+
+		// Génération d'autant de chiffres que ce que retourne la méthode getCombinationLength()
+		for (int i = 0; i < config.getCombinationLength(); i++)
+		{
+			int randomNum = numberChosenByRandom.nextInt(high - low) + low;
+
+			// Stockage du nombre aléatoire en cours dans le tableau combination[], "i" vaudra successivement 0, 1, 2, 3
+			combination[i] = randomNum;
+		}
+
+		return combination;
+	}
+
 	public void reset()
 	{
 		for(int i = 0; i < config.getCombinationLength(); i++)
@@ -40,9 +67,9 @@ public class AI extends AbstractUser
 		m_firstIter = true;
 	}
 
-	public String getCombinationAsString(int[] comparison)
+	public int[] guessCombination(int[] comparison)
 	{
-		String newCombinationAsString = "";
+		int[] combination = new int[config.getCombinationLength()];
 
 		for(int i = 0; i < config.getCombinationLength(); i++)
 		{
@@ -50,7 +77,7 @@ public class AI extends AbstractUser
 			{
 				m_firstIter = false;
 
-				newCombinationAsString += String.valueOf(m_lastValues[i]);
+				combination[i] = m_lastValues[i];
 			}
 			else
 			{
@@ -65,10 +92,10 @@ public class AI extends AbstractUser
 					m_lastValues[i] = (m_stopValues[i] + m_startValues[i]) / 2;
 				}
 
-				newCombinationAsString += String.valueOf(m_lastValues[i]);
+				combination[i] = m_lastValues[i];
 			}
 		}
 
-		return newCombinationAsString;
+		return combination;
 	}
 }

@@ -4,9 +4,10 @@ import java.util.Properties;
 
 public class Config
 {
-    private boolean developperMode = false;
+    private boolean developerMode = false;
     private int combinationLength = 4;
     private int combinationNumberOfTry = 10;
+    private int smartPercent = 50;
 
     public void load()
     {
@@ -15,9 +16,10 @@ public class Config
             Properties p = new Properties();
             p.load(getClass().getResourceAsStream("/escapeGame.properties"));
 
-            developperMode = Boolean.valueOf(p.getProperty("developperMode"));
+            developerMode = Boolean.valueOf(p.getProperty("developerMode"));
             combinationLength = Integer.valueOf(p.getProperty("combinationLength"));
             combinationNumberOfTry = Integer.valueOf(p.getProperty("combinationNumberOfTry"));
+            smartPercent = Integer.valueOf(p.getProperty("smartPercent"));
         }
         catch(Exception e)
         {
@@ -25,7 +27,10 @@ public class Config
         }
     }
 
-    public boolean isDevelopperMode() { return developperMode; }
+    public boolean isDeveloperMode()
+    {
+        return developerMode;
+    }
 
     public int getCombinationLength()
     {
@@ -35,5 +40,10 @@ public class Config
     public int getCombinationNumberOfTry()
     {
         return combinationNumberOfTry;
+    }
+
+    public int getSmartPercent()
+    {
+        return smartPercent;
     }
 }

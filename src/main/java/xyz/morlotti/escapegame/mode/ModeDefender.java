@@ -1,7 +1,9 @@
 package xyz.morlotti.escapegame.mode;
 
 import xyz.morlotti.escapegame.Config;
-import xyz.morlotti.escapegame.user.AI;
+import xyz.morlotti.escapegame.user.AbstractUser;
+import xyz.morlotti.escapegame.user.BumbAI;
+import xyz.morlotti.escapegame.user.Human;
 
 public class ModeDefender extends AbstractMode
 {
@@ -14,9 +16,10 @@ public class ModeDefender extends AbstractMode
     {
         System.out.println("Démarrage du mode Défenseur");
 
-        AI user = new AI(m_config);
+        AbstractUser ia = new BumbAI(m_config);
+        AbstractUser human = new Human(m_config);
 
-        int[] combination = readCombination();
+        int[] combination = human.generateCombination();
 
         int[] comparison = generateComparison();
 
@@ -24,7 +27,7 @@ public class ModeDefender extends AbstractMode
         {
             System.out.println("Tentative numéro " + (i + 1));
 
-            if(playATurn(user, combination, comparison) == true)
+            if(playATurn(ia, combination, comparison) == true)
             {
                 return AbstractMode.AI_WON;
             }

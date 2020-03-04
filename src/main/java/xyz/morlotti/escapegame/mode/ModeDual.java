@@ -1,7 +1,8 @@
 package xyz.morlotti.escapegame.mode;
 
 import xyz.morlotti.escapegame.Config;
-import xyz.morlotti.escapegame.user.AI;
+import xyz.morlotti.escapegame.user.AbstractUser;
+import xyz.morlotti.escapegame.user.BumbAI;
 import xyz.morlotti.escapegame.user.Human;
 
 public class ModeDual extends AbstractMode
@@ -15,11 +16,11 @@ public class ModeDual extends AbstractMode
     {
         System.out.println("Démarrage du mode Duel");
 
-        Human human = new Human(m_config);
-        AI ai = new AI(m_config);
+        AbstractUser ai = new BumbAI(m_config);
+        AbstractUser human = new Human(m_config);
 
-        int[] combinationHuman = readCombination();
-        int[] combinationAI = generateCombination();
+        int[] combinationHuman = human.generateCombination();
+        int[] combinationAI = ai.generateCombination();
 
         int[] comparisonHuman = generateComparison();
         int[] comparisonAI = generateComparison();
@@ -29,13 +30,13 @@ public class ModeDual extends AbstractMode
             System.out.println("Tentative numéro " + (i + 1));
 
             System.out.println("Joueur:");
-            if(playATurn(human, combinationHuman, comparisonHuman) == true)
+            if(playATurn(human, combinationAI, comparisonHuman) == true)
             {
                 return AbstractMode.HUMAN_WON;
             }
 
             System.out.println("IA:");
-            if(playATurn(ai, combinationAI, comparisonAI) == true)
+            if(playATurn(ai, combinationHuman, comparisonAI) == true)
             {
                 return AbstractMode.AI_WON;
             }

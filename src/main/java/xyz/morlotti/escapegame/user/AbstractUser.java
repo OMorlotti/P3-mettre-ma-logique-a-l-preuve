@@ -11,5 +11,7 @@ public abstract class AbstractUser
 		config = _config;
 	}
 
-	abstract public String getCombinationAsString(int[] comparison);
+	public abstract int[] generateCombination();
+
+	abstract public int[] guessCombination(int[] comparison);
 }
