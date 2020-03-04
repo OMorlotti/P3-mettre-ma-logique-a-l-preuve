@@ -40,7 +40,7 @@ mvn package
 ### Utilisation
 
 ```bash
-java -Dfile.encoding=UTF-8 -classpath $PWD/target/dependency-jars/log4j-core-2.13.0.jar:$PWD/target/dependency-jars/log4j-api-2.13.0.jar -jar target/escapegame-1.0.0.jar
+java -Dfile.encoding=UTF-8 -classpath $PWD/target/dependency-jars/log4j-core-*.jar:$PWD/target/dependency-jars/log4j-api-*.jar -jar target/escapegame-*.jar
 ```
 
 ## Fabriqué avec
