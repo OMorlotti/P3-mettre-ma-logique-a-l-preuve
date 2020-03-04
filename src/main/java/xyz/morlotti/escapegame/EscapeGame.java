@@ -17,6 +17,8 @@ public class EscapeGame
 
     public boolean showMenu()
     {
+        System.out.println("------------------------------------------------------------------------------");
+
         System.out.println("Veuillez choisir un mode : 1- Défenseur, 2- Challenger, 3- Duel, 4- Quitter");
 
         Scanner sc = new Scanner(System.in);
@@ -68,7 +70,7 @@ public class EscapeGame
                     System.out.println("L'IA a gagnée ;-)\n");
                     break;
                 case AbstractMode.HUMAN_WON:
-                    m_logger.info("Le joueur a gagnée");
+                    m_logger.info("Le joueur a gagné");
                     System.out.println("Le joueur a gagné :-)\n");
                     break;
                 case AbstractMode.NOBODY_WON:
@@ -92,7 +94,7 @@ public class EscapeGame
 
         while(true)
         {
-            if(showMenu() == false)
+            if(!showMenu())
             {
                 break;
             }

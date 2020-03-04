@@ -1,10 +1,12 @@
 package xyz.morlotti.escapegame.mode;
 
-import java.util.Random;
-import java.util.Scanner;
+import org.apache.logging.log4j.Logger;
 
 import xyz.morlotti.escapegame.Config;
+import xyz.morlotti.escapegame.Log;
 import xyz.morlotti.escapegame.user.AbstractUser;
+
+import java.util.Arrays;
 
 abstract public class AbstractMode
 {
@@ -14,9 +16,13 @@ abstract public class AbstractMode
 
     protected final Config m_config;
 
+    protected final Logger m_logger;
+
     public AbstractMode(Config config)
     {
         m_config = config;
+
+        m_logger = Log.getLogger("AbstractMode", config.isDeveloperMode());
     }
 
     protected int[] generateComparison()
@@ -31,13 +37,15 @@ abstract public class AbstractMode
         return combinationComparison;
     }
 
-    protected boolean playATurn(AbstractUser user, int[] combination, int[] comparison)
+    protected boolean playATurn(int attempt, AbstractUser user, int[] combination, int[] comparison)
     {
         int[] newCombination = user.guessCombination(comparison);
 
         if (newCombination.length == m_config.getCombinationLength())
         {
             int count = 0;
+
+            m_logger.info("Tentative n°" + (attempt + 1) + ": " + Arrays.toString(newCombination));
 
             for (int j = 0; j < m_config.getCombinationLength(); j++)
             {
