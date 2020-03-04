@@ -2,8 +2,8 @@ package xyz.morlotti.escapegame.mode;
 
 import org.apache.logging.log4j.Logger;
 
-import xyz.morlotti.escapegame.Config;
 import xyz.morlotti.escapegame.Log;
+import xyz.morlotti.escapegame.Config;
 import xyz.morlotti.escapegame.user.AbstractUser;
 import xyz.morlotti.escapegame.user.BumbAI;
 import xyz.morlotti.escapegame.user.Human;

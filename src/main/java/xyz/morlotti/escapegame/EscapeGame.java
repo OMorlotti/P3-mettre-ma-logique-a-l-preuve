@@ -1,13 +1,14 @@
 package xyz.morlotti.escapegame;
 
 import org.apache.logging.log4j.Logger;
+
 import xyz.morlotti.escapegame.mode.AbstractMode;
 import xyz.morlotti.escapegame.mode.ModeChallenger;
 import xyz.morlotti.escapegame.mode.ModeDefender;
 import xyz.morlotti.escapegame.mode.ModeDual;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class EscapeGame
 {
