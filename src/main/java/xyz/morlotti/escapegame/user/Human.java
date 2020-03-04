@@ -11,14 +11,14 @@ public class Human extends AbstractUser
 		super(config);
 	}
 
-	public int[] generateCombination()
+	public int[] generateCombination() // combinaison générée par le joueur
 	{
 		return readCombination(
 			"Veuillez saisir la combinaison à " + m_config.getCombinationLength() + " chiffres à faire deviner à l'IA :"
 		);
 	}
 
-	public int[] guessCombination(int[] comparison)
+	public int[] guessCombination(int[] comparison) // tentative du joueur
 	{
 		return readCombination(
 			"Veuillez saisir votre tentative de combinaison à " + m_config.getCombinationLength() + " chiffres :"

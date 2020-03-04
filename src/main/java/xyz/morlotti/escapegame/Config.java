@@ -15,9 +15,11 @@ public class Config
     {
         try
         {
+            // chargement du fichier escapeGame.properties
             Properties p = new Properties();
             p.load(getClass().getResourceAsStream("/escapeGame.properties"));
 
+            // lecture des paramètres
             m_developerMode = Boolean.parseBoolean(p.getProperty("developerMode"));
             m_combinationLength = Integer.parseInt(p.getProperty("combinationLength"));
             m_combinationNumberOfTry = Integer.parseInt(p.getProperty("combinationNumberOfTry"));

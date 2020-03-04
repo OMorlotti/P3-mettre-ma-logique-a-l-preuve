@@ -8,7 +8,7 @@ import org.apache.logging.log4j.core.config.Configurator;
 
 public class Log
 {
-	static
+	static // appliqué une seule fois : lorsque la classe est chargée en mémoire
 	{
 		try(LoggerContext context = (LoggerContext) LogManager.getContext(false))
 		{
@@ -20,7 +20,7 @@ public class Log
 		}
 	}
 
-	public static Logger getLogger(String name, boolean isDevelopperMode)
+	public static Logger getLogger(String name, boolean isDevelopperMode) // récupère le logger dont le nom est "name"
 	{
 		Logger logger = LogManager.getLogger(name);
 

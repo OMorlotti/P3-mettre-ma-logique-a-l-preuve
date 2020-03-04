@@ -6,7 +6,7 @@ import xyz.morlotti.escapegame.Config;
 
 public class BumbAI extends AI
 {
-	private final int m_smartPercent;
+	private final int m_smartPercent; // Permet d'ajuster le niveau de difficulté de jeux en fonction du pourcentage de difficulté
 
 	public BumbAI(Config config)
 	{
