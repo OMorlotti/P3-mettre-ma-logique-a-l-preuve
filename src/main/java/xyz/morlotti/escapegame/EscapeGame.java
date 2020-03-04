@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class EscapeGame
 {
-    public final Config config = new Config();
+    public final Config m_config = new Config();
 
     public boolean showMenu()
     {
@@ -30,19 +30,19 @@ public class EscapeGame
             {
                 case 1:
                     System.out.println("Vous avez choisi le mode Défenseur\nBon jeux !\n");
-                    mode = new ModeDefender(config);
+                    mode = new ModeDefender(m_config);
                     result = mode.start();
                     break;
 
                 case 2:
                     System.out.println("Vous avez choisi le mode Challenger\nBon jeux !\n");
-                    mode = new ModeChallenger(config);
+                    mode = new ModeChallenger(m_config);
                     result = mode.start();
                     break;
 
                 case 3:
                     System.out.println("Vous avez choisi le mode Duel !\nBon jeux !\n");
-                    mode = new ModeDual(config);
+                    mode = new ModeDual(m_config);
                     result = mode.start();
                     break;
 
@@ -77,7 +77,7 @@ public class EscapeGame
 
     public void start()
     {
-        config.load();
+        m_config.load();
 
         while(true)
         {

@@ -6,13 +6,13 @@ import xyz.morlotti.escapegame.Config;
 
 public class BumbAI extends AI
 {
-	private final int smartPercent;
+	private final int m_smartPercent;
 
 	public BumbAI(Config config)
 	{
 		super(config);
 
-		this.smartPercent = config.getSmartPercent();
+		this.m_smartPercent = config.getSmartPercent();
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class BumbAI extends AI
 	{
 		int rand = new Random().nextInt(100);
 
-		if (rand < smartPercent)
+		if (rand < m_smartPercent)
 		{
 			return super.guessCombination(comparison);
 		}

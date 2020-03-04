@@ -4,10 +4,10 @@ import java.util.Properties;
 
 public class Config
 {
-    private boolean developerMode = false;
-    private int combinationLength = 4;
-    private int combinationNumberOfTry = 10;
-    private int smartPercent = 50;
+    private boolean m_developerMode = false;
+    private int m_combinationLength = 4;
+    private int m_combinationNumberOfTry = 10;
+    private int m_smartPercent = 50;
 
     public void load()
     {
@@ -16,10 +16,10 @@ public class Config
             Properties p = new Properties();
             p.load(getClass().getResourceAsStream("/escapeGame.properties"));
 
-            developerMode = Boolean.valueOf(p.getProperty("developerMode"));
-            combinationLength = Integer.valueOf(p.getProperty("combinationLength"));
-            combinationNumberOfTry = Integer.valueOf(p.getProperty("combinationNumberOfTry"));
-            smartPercent = Integer.valueOf(p.getProperty("smartPercent"));
+            m_developerMode = Boolean.valueOf(p.getProperty("developerMode"));
+            m_combinationLength = Integer.valueOf(p.getProperty("combinationLength"));
+            m_combinationNumberOfTry = Integer.valueOf(p.getProperty("combinationNumberOfTry"));
+            m_smartPercent = Integer.valueOf(p.getProperty("smartPercent"));
         }
         catch(Exception e)
         {
@@ -29,21 +29,21 @@ public class Config
 
     public boolean isDeveloperMode()
     {
-        return developerMode;
+        return m_developerMode;
     }
 
     public int getCombinationLength()
     {
-        return combinationLength;
+        return m_combinationLength;
     }
 
     public int getCombinationNumberOfTry()
     {
-        return combinationNumberOfTry;
+        return m_combinationNumberOfTry;
     }
 
     public int getSmartPercent()
     {
-        return smartPercent;
+        return m_smartPercent;
     }
 }

@@ -4,11 +4,11 @@ import xyz.morlotti.escapegame.Config;
 
 public abstract class AbstractUser
 {
-	protected final Config config;
+	protected final Config m_config;
 
-	public AbstractUser(Config _config)
+	public AbstractUser(Config config)
 	{
-		config = _config;
+		m_config = config;
 	}
 
 	public abstract int[] generateCombination();

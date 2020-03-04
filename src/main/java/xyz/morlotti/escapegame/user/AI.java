@@ -41,10 +41,10 @@ public class AI extends AbstractUser
 		Random numberChosenByRandom = new Random();
 
 		// Création d'un tableau qui contient autant d'entrées que ce que retourne la méthode getCombinationLength()
-		int[] combination = new int[config.getCombinationLength()];
+		int[] combination = new int[m_config.getCombinationLength()];
 
 		// Génération d'autant de chiffres que ce que retourne la méthode getCombinationLength()
-		for (int i = 0; i < config.getCombinationLength(); i++)
+		for (int i = 0; i < m_config.getCombinationLength(); i++)
 		{
 			int randomNum = numberChosenByRandom.nextInt(high - low) + low;
 
@@ -57,7 +57,7 @@ public class AI extends AbstractUser
 
 	public void reset()
 	{
-		for(int i = 0; i < config.getCombinationLength(); i++)
+		for(int i = 0; i < m_config.getCombinationLength(); i++)
 		{
 			m_startValues[i] = START;
 			m_stopValues[i] = STOP;
@@ -69,9 +69,9 @@ public class AI extends AbstractUser
 
 	public int[] guessCombination(int[] comparison)
 	{
-		int[] combination = new int[config.getCombinationLength()];
+		int[] combination = new int[m_config.getCombinationLength()];
 
-		for(int i = 0; i < config.getCombinationLength(); i++)
+		for(int i = 0; i < m_config.getCombinationLength(); i++)
 		{
 			if(m_firstIter)
 			{
