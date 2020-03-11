@@ -1,56 +1,70 @@
 @startuml
 
 Class EscapeGame {
-config: Config
+m_config: Config
+m_logger: Logger
 menu(): boolean
 start(): void
 }
 
 class Config {
-
-reload(): void
+load(): void
 }
 
 class Log {
-
+getLogger(String name, boolean isDeveloperMode): Logger
 }
 
 abstract class AbstractMode {
-config: Config
-user: AbstractUser
-readCombination(): int[]
-generateCombination(): int[]
+m_config: Config
+m_logger: Logger
+generateComparison() int[]
+playATurn(int attempt, AbstractUser user, int[] combination, int[] comparison) boolean
 start(): void
 }
 
 class ModeChallenger {
-config: Config
+m_config: Config
+m_logger: Logger
 start(): void
 }
 
 class ModeDefender {
-config: Config
+m_config: Config
+m_logger: Logger
 start(): void
 }
 
 class ModeDual {
-config: Config
+m_config: Config
+m_logger: Logger
 start(): void
 }
 
 
 abstract class AbstractUser {
-getCombinationAsString(): String
+config: Config
+generateCombination(): int[]
+guessCombination(int[] comparison): int[]
 }
 
-class BumbAI {
-
+class AI {
+config: Config
+generateCombination(): int[]
+guessCombination(int[] comparison): int[]
 }
 
 class Human {
-
+config: Config
+generateCombination(): int[]
+guessCombination(int[] comparison): int[]
 }
 
+class DumbAI {
+config: Config
+generateCombination(): int[]
+guessCombination(int[] comparison): int[]
+}
 
 AbstractMode <|--- ModeChallenger
 AbstractMode <|--- ModeDefender
@@ -59,7 +73,7 @@ AbstractMode <|--- ModeDual
 AbstractUser <|--- AI
 AbstractUser <|--- Human
 
-AI <|--- BumbAI
+AI <|--- DumbAI
 
 EscapeGame -- AbstractMode
 EscapeGame -- Log
