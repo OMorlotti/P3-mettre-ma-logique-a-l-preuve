@@ -17,6 +17,7 @@ public class AI extends AbstractUser
 	private final int[] m_stopValues;
 	protected final int[] m_lastValues;
 
+	// Indique si la dichotomie vient d'être resetée (la valeur retournée sera la valeur centrale)
 	private boolean m_firstIter;
 
 	public AI(Config config)
@@ -35,8 +36,8 @@ public class AI extends AbstractUser
 	// Génère une combinaison à "combinationLength" chiffres.
 	public int[] generateCombination()
 	{
-		int low = 0;
-		int high = 10;
+		final int low = 0;
+		final int high = 10;
 
 		// Générateur de nombres aléatoires
 		Random numberChosenByRandom = new Random();

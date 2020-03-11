@@ -44,12 +44,14 @@ public class ModeDual extends AbstractMode
         {
             System.out.println(String.format(LogMessage.ATTEMPT, i + 1));
 
+            // Essaye pour l'humain
             System.out.println(LogMessage.HUMAN);
             if(playATurn(i, human, combinationAI, comparisonHuman))
             {
                 return AbstractMode.HUMAN_WON;
             }
 
+            // Essaye pour l'IA
             System.out.println(LogMessage.AI);
             if(playATurn(i, ai, combinationHuman, comparisonAI))
             {
