@@ -43,25 +43,28 @@ start(): int
 
 
 abstract class AbstractUser {
-config: Config
+m_config: Config
 generateCombination(): int[]
 guessCombination(int[] comparison): int[]
 }
 
 class AI {
-config: Config
+m_config: Config
+m_logger: Logger
 generateCombination(): int[]
 guessCombination(int[] comparison): int[]
 }
 
 class Human {
-config: Config
+m_config: Config
+m_logger: Logger
 generateCombination(): int[]
 guessCombination(int[] comparison): int[]
 }
 
 class DumbAI {
-config: Config
+m_config: Config
+m_logger: Logger
 generateCombination(): int[]
 guessCombination(int[] comparison): int[]
 }
