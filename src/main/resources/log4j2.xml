@@ -13,6 +13,18 @@
         <Logger name="Config" level="info">
             <AppenderRef ref="A1" />
         </Logger>
+        <Logger name="EscapeGame" level="info">
+            <AppenderRef ref="A1" />
+        </Logger>
+        <Logger name="ModeDefender" level="info">
+            <AppenderRef ref="A1" />
+        </Logger>
+        <Logger name="ModeChallenger" level="info">
+            <AppenderRef ref="A1" />
+        </Logger>
+        <Logger name="ModeDual" level="info">
+            <AppenderRef ref="A1" />
+        </Logger>
         <Root level="info">
             <AppenderRef ref="STDOUT" />
         </Root>

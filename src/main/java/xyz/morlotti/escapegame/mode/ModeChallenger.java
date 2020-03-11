@@ -49,6 +49,6 @@ public class ModeChallenger extends AbstractMode
 
 		System.out.println(String.format(LogMessage.COMBINATION_WAS, Arrays.toString(combination)));
 
-		return AbstractMode.NOBODY_WON;
+		return AbstractMode.AI_WON;
 	}
 }

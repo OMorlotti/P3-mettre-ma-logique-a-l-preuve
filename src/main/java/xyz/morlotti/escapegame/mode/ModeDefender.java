@@ -45,6 +45,6 @@ public class ModeDefender extends AbstractMode
             }
         }
 
-        return AbstractMode.NOBODY_WON;
+        return AbstractMode.HUMAN_WON;
     }
 }

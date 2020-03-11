@@ -41,5 +41,5 @@ public class LogMessage
 
 	public static final String ATTEMPT = "Tentative n°%d";
 
-	public static final String COMBINATION_WAS = "La combinaison à trouver était %d";
+	public static final String COMBINATION_WAS = "La combinaison à trouver était %s";
 }
