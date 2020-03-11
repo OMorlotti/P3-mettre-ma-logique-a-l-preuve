@@ -4,8 +4,9 @@ import org.apache.logging.log4j.Logger;
 
 import xyz.morlotti.escapegame.Log;
 import xyz.morlotti.escapegame.Config;
+import xyz.morlotti.escapegame.LogMessage;
 import xyz.morlotti.escapegame.user.AbstractUser;
-import xyz.morlotti.escapegame.user.BumbAI;
+import xyz.morlotti.escapegame.user.DumbAI;
 import xyz.morlotti.escapegame.user.Human;
 
 import java.util.Arrays;
@@ -23,20 +24,20 @@ public class ModeDefender extends AbstractMode
 
     public int start()
     {
-        System.out.println("Démarrage du mode Défenseur");
+        System.out.println(LogMessage.START_DEFENDER);
 
-        AbstractUser ia = new BumbAI(m_config);
+        AbstractUser ia = new DumbAI(m_config);
         AbstractUser human = new Human(m_config);
 
         int[] combination = human.generateCombination();
 
         int[] comparison = generateComparison();
 
-        m_logger.info("Combinaison à " + m_config.getCombinationLength() + " chiffres à faire deviner à l'IA : " + Arrays.toString(combination));
+        m_logger.info(String.format(LogMessage.COMBINATION_AI, m_config.getCombinationLength(), Arrays.toString(combination)));
 
         for (int i = 0; i < m_config.getCombinationNumberOfTry(); i++)
         {
-            System.out.println("Tentative numéro " + (i + 1));
+            System.out.println(String.format(LogMessage.ATTEMPT, i + 1));
 
             if(playATurn(i, ia, combination, comparison))
             {

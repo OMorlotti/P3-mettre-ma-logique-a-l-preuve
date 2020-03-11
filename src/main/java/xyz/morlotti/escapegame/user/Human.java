@@ -34,6 +34,7 @@ public class Human extends AbstractUser
 
 			combinationAsString = new Scanner(System.in).nextLine();
 
+			//
 		} while (!combinationAsString.matches("[0-9]{" + m_config.getCombinationLength() + "}+"));
 
 		// Création d'un tableau qui contient autant d'entrées que ce que retourne la méthode getCombinationLength()
