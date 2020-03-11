@@ -9,7 +9,7 @@ Escape Game est une application de jeux du type *Mastermind* : le joueur et l'or
   - **Duel** : le joueur et l'ordinateur choisissent chacun une combination que l'autre doit deviner. Le premier qui trouve la combinaison de l'autre, dans le temps imparti, gagne.
 
 Le code-source est composé de deux packages :
-  - `mode` : ìl contient la classe abstraite `AbstractMode`, dont hérite les 3 classes-filles `ModeChallenger`, `ModeDefender` et `ModeDual`.
+  - `mode` : il contient la classe abstraite `AbstractMode`, dont hérite les 3 classes-filles `ModeChallenger`, `ModeDefender` et `ModeDual`.
              Ces 3 dernières gèrent chacune les fonctionnalités des modes présentés ci-dessus.
   - `user` : il contient, la classe abstraite `AbstractUser`, dont hérite les 2 classes-filles `AI` et `Human`.
              Ces 2 dernières gèrent les fonctionnalités liées à chaque type de joueur : l'humain et l'intelligence artificielle.
