@@ -20,25 +20,25 @@ m_config: Config
 m_logger: Logger
 generateComparison() int[]
 playATurn(int attempt, AbstractUser user, int[] combination, int[] comparison) boolean
-start(): void
+start(): int
 }
 
 class ModeChallenger {
 m_config: Config
 m_logger: Logger
-start(): void
+start(): int
 }
 
 class ModeDefender {
 m_config: Config
 m_logger: Logger
-start(): void
+start(): int
 }
 
 class ModeDual {
 m_config: Config
 m_logger: Logger
-start(): void
+start(): int
 }
 
 
