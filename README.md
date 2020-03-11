@@ -17,7 +17,7 @@ Le code-source est composé de deux packages :
 et trois classes :
 
   - `EscapeGame` : elle correspond au jeu lui-même avec la méthode point d'entrée `main`.
-  - `Config` : elle gére la lecture du fichier de propriétés `escapeGame.properties`. Ce-dernier contient les paramètres de configuration de base du jeux (taille de la combinaison à trouver, nombre d'essai(s) et activation ou non du mode *Développeur*).
+  - `Config` : elle gère la lecture du fichier de propriétés `escapeGame.properties`. Ce-dernier contient les paramètres de configuration de base du jeux (taille de la combinaison à trouver, nombre d'essai(s) et activation ou non du mode *Développeur*).
   - `Log` : elle assure l'affichage des messages avec le logger *Log4J2*.
 
 
