@@ -15,7 +15,7 @@ public class DumbAI extends AI
 		this.m_smartPercent = config.getSmartPercent();
 	}
 
-	@Override
+	// Propose une combinaison depuis le clavier ou par l'IA selon l'implémentation
 	public int[] guessCombination(int[] comparison)
 	{
 		int rand = new Random().nextInt(100);

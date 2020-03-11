@@ -16,11 +16,14 @@ public class EscapeGame
 
     public final Config m_config = new Config();
 
+    // Menu principal
+    // Retourne "false" lorsque l'utilisateur souhaiter quitter
     public boolean showMenu()
     {
         System.out.println(LogMessage.SEPARATOR);
         System.out.println(LogMessage.MENU_PROMPT);
 
+        // Lit les choix de modes
         Scanner sc = new Scanner(System.in);
 
         try
@@ -33,36 +36,37 @@ public class EscapeGame
 
             switch(choiceOfGameMode)
             {
-                case 1:
+                case 1: // Mode défenseur
                     m_logger.info(LogMessage.NEW_DEFENDER);
                     System.out.println(LogMessage.NEW_DEFENDER_2);
                     mode = new ModeDefender(m_config);
                     result = mode.start();
                     break;
 
-                case 2:
+                case 2: // Mode challenger
                     m_logger.info(LogMessage.NEW_CHALLENGER);
                     System.out.println(LogMessage.NEW_CHALLENGER_2);
                     mode = new ModeChallenger(m_config);
                     result = mode.start();
                     break;
 
-                case 3:
+                case 3: // Mode duel
                     m_logger.info(LogMessage.NEW_DUAL);
                     System.out.println(LogMessage.NEW_DUAL_2);
                     mode = new ModeDual(m_config);
                     result = mode.start();
                     break;
 
-                case 4:
+                case 4: // Fin du jeu
                     System.out.println(LogMessage.BYE);
                     return false;
 
-                default:
+                default: // Choix invalide
                     System.out.println(LogMessage.BAD_CHOICE);
                     result = -99999;
             }
 
+            // Affichage du gagnant
             switch(result)
             {
                 case AbstractMode.AI_WON:
@@ -88,6 +92,7 @@ public class EscapeGame
         return true;
     }
 
+    // Boucle principale du jeux
     public void start()
     {
         m_config.load();
@@ -105,11 +110,12 @@ public class EscapeGame
 
     public static void main(String[] args)
     {
+        // Création de l'instance "escapeGame" et démarrage du jeux
         new EscapeGame().start();
 
 //      EscapeGame escapeGame = new EscapeGame();
 //      escapeGame.start();
 
-        System.exit(0);
+        System.exit(0); // Fin du programme
     }
 }

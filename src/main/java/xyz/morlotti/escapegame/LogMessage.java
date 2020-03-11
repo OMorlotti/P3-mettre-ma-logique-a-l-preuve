@@ -2,6 +2,8 @@ package xyz.morlotti.escapegame;
 
 public class LogMessage
 {
+	public static final String CANNOT_READ_CONF_FILE = "Lecture impossible du fichier 'escapeGame.properties'";
+
 	public static final String SEPARATOR = "------------------------------------------------------------------------------";
 
 	public static final String MENU_PROMPT = "Veuillez choisir un mode : 1- Défenseur, 2- Challenger, 3- Duel, 4- Quitter";

@@ -22,6 +22,7 @@ public class ModeChallenger extends AbstractMode
 		m_logger = Log.getLogger("ModeChallenger", config.isDeveloperMode());
 	}
 
+	// Démarrage d'une partie en mode challenger.
 	public int start()
 	{
 		System.out.println(LogMessage.START_CHALLENGER);
@@ -35,6 +36,7 @@ public class ModeChallenger extends AbstractMode
 
 		m_logger.info(String.format(LogMessage.COMBINATION_HUMAN, m_config.getCombinationLength(), Arrays.toString(combination)));
 
+		// Effectue "CombinationNumberOfTry" tentatives de divination
 		for (int i = 0; i < m_config.getCombinationNumberOfTry(); i++)
 		{
 			System.out.println(String.format(LogMessage.ATTEMPT, i + 1));

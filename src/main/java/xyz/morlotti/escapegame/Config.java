@@ -11,6 +11,7 @@ public class Config
     private int m_combinationNumberOfTry = 10;
     private int m_smartPercent = 50;
 
+    // Lecture de la configuration du jeux dans le fichier "escapeGame.properties"
     public void load()
     {
         try
@@ -25,10 +26,12 @@ public class Config
             m_combinationNumberOfTry = Integer.parseInt(p.getProperty("combinationNumberOfTry"));
             m_smartPercent = Integer.parseInt(p.getProperty("smartPercent"));
         }
-        catch(Exception e)
+        catch(Exception e) // Si le fichier ne peut pas être lu
         {
-           System.out.println("Lecture impossible du fichier 'escapeGame.properties'");
+           System.out.println(LogMessage.CANNOT_READ_CONF_FILE);
         }
+
+        // Ecriture des paramètres courants dans le fichier de log
 
         Logger logger = Log.getLogger("Config", m_developerMode);
 

@@ -1,5 +1,7 @@
 package xyz.morlotti.escapegame.mode;
 
+import java.util.Arrays;
+
 import org.apache.logging.log4j.Logger;
 
 import xyz.morlotti.escapegame.Log;
@@ -8,8 +10,6 @@ import xyz.morlotti.escapegame.LogMessage;
 import xyz.morlotti.escapegame.user.AbstractUser;
 import xyz.morlotti.escapegame.user.DumbAI;
 import xyz.morlotti.escapegame.user.Human;
-
-import java.util.Arrays;
 
 public class ModeDual extends AbstractMode
 {
@@ -22,6 +22,7 @@ public class ModeDual extends AbstractMode
         m_logger = Log.getLogger("ModeDual", config.isDeveloperMode());
     }
 
+    // Démarrage d'une partie en mode duel.
     public int start()
     {
         System.out.println(LogMessage.START_DUAL);
@@ -38,6 +39,7 @@ public class ModeDual extends AbstractMode
         m_logger.info(String.format(LogMessage.COMBINATION_HUMAN, m_config.getCombinationLength(), Arrays.toString(combinationAI)));
         m_logger.info(String.format(LogMessage.COMBINATION_AI, m_config.getCombinationLength(), Arrays.toString(combinationHuman)));
 
+        // Effectue "CombinationNumberOfTry" tentatives de divination
         for (int i = 0; i < m_config.getCombinationNumberOfTry(); i++)
         {
             System.out.println(String.format(LogMessage.ATTEMPT, i + 1));

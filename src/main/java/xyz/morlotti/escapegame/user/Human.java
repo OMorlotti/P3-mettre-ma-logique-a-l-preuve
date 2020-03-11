@@ -11,6 +11,7 @@ public class Human extends AbstractUser
 		super(config);
 	}
 
+	// Génère une combinaison à "combinationLength" chiffres lue au clavier
 	public int[] generateCombination() // combinaison générée par le joueur
 	{
 		return readCombination(
@@ -18,6 +19,7 @@ public class Human extends AbstractUser
 		);
 	}
 
+	// Propose une combinaison lue au clavier
 	public int[] guessCombination(int[] comparison) // tentative du joueur
 	{
 		return readCombination(
@@ -34,7 +36,7 @@ public class Human extends AbstractUser
 
 			combinationAsString = new Scanner(System.in).nextLine();
 
-			//
+			// boucle tant que "combinationAsString" n'est pas une chaine de "combinationLength" chiffres.
 		} while (!combinationAsString.matches("[0-9]{" + m_config.getCombinationLength() + "}+"));
 
 		// Création d'un tableau qui contient autant d'entrées que ce que retourne la méthode getCombinationLength()

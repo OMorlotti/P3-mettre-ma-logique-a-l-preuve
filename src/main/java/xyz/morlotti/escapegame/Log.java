@@ -7,10 +7,12 @@ import org.apache.logging.log4j.core.config.Configurator;
 
 public class Log
 {
-	public static Logger getLogger(String name, boolean isDeveloperMode) // récupère le logger dont le nom est "name"
+	// Récupère le logger dont le nom est "name"
+	public static Logger getLogger(String name, boolean isDeveloperMode)
 	{
 		Logger logger = LogManager.getLogger(name);
 
+		// Si "isDeveloperMode" est à "true", tout les messages sont affichés, sinon seulement les erreurs et les warnings le sont.
 		if(isDeveloperMode)
 		{
 			Configurator.setLevel(name, Level.INFO);

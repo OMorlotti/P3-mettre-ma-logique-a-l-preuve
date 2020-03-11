@@ -32,6 +32,7 @@ public class AI extends AbstractUser
 		reset();
 	}
 
+	// Génère une combinaison à "combinationLength" chiffres.
 	public int[] generateCombination()
 	{
 		int low = 0;
@@ -55,6 +56,7 @@ public class AI extends AbstractUser
 		return combination;
 	}
 
+	// Réinitialise la dichotomie sur la valeur centrale
 	public void reset()
 	{
 		for(int i = 0; i < m_config.getCombinationLength(); i++)
@@ -67,27 +69,32 @@ public class AI extends AbstractUser
 		m_firstIter = true;
 	}
 
+	// Propose une combinaison via dichotomie
 	public int[] guessCombination(int[] comparison)
 	{
 		int[] combination = new int[m_config.getCombinationLength()];
 
 		for(int i = 0; i < m_config.getCombinationLength(); i++)
 		{
+			// Première tentative
 			if(m_firstIter)
 			{
 				m_firstIter = false;
 
+				// "lastValue" est à la valeur centrale définie dans la méthode "reset"
 				combination[i] = m_lastValues[i];
 			}
 			else
 			{
 				/**/ if(comparison[i] < 0)
 				{
+					// On réduit l'intervalle à droite
 					m_stopValues[i] = m_lastValues[i];
 					m_lastValues[i] = (m_stopValues[i] + m_startValues[i]) / 2;
 				}
 				else if(comparison[i] > 0)
 				{
+					// On réduit l'intervalle à gauche
 					m_startValues[i] = m_lastValues[i];
 					m_lastValues[i] = (m_stopValues[i] + m_startValues[i]) / 2;
 				}
