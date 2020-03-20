@@ -17,9 +17,6 @@ public class AI extends AbstractUser
 	private final int[] m_stopValues;
 	protected final int[] m_lastValues;
 
-	// Indique si la dichotomie vient d'être resetée (la valeur retournée sera la valeur centrale)
-	private boolean m_firstIter;
-
 	public AI(Config config)
 	{
 		super(config);
@@ -66,8 +63,6 @@ public class AI extends AbstractUser
 			m_stopValues[i] = STOP;
 			m_lastValues[i] = CENTER;
 		}
-
-		m_firstIter = true;
 	}
 
 	// Propose une combinaison via dichotomie
@@ -77,31 +72,20 @@ public class AI extends AbstractUser
 
 		for(int i = 0; i < m_config.getCombinationLength(); i++)
 		{
-			// Première tentative
-			if(m_firstIter)
+			/**/ if(comparison[i] < 0)
 			{
-				m_firstIter = false;
-
-				// "lastValue" est à la valeur centrale définie dans la méthode "reset"
-				combination[i] = m_lastValues[i];
+				// On réduit l'intervalle à droite
+				m_stopValues[i] = m_lastValues[i];
+				m_lastValues[i] = (m_stopValues[i] + m_startValues[i]) / 2;
 			}
-			else
+			else if(comparison[i] > 0)
 			{
-				/**/ if(comparison[i] < 0)
-				{
-					// On réduit l'intervalle à droite
-					m_stopValues[i] = m_lastValues[i];
-					m_lastValues[i] = (m_stopValues[i] + m_startValues[i]) / 2;
-				}
-				else if(comparison[i] > 0)
-				{
-					// On réduit l'intervalle à gauche
-					m_startValues[i] = m_lastValues[i];
-					m_lastValues[i] = (m_stopValues[i] + m_startValues[i]) / 2;
-				}
-
-				combination[i] = m_lastValues[i];
+				// On réduit l'intervalle à gauche
+				m_startValues[i] = m_lastValues[i];
+				m_lastValues[i] = (m_stopValues[i] + m_startValues[i]) / 2;
 			}
+
+			combination[i] = m_lastValues[i];
 		}
 
 		return combination;
