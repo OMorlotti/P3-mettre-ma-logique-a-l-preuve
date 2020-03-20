@@ -36,7 +36,7 @@ public class Human extends AbstractUser
 
 			combinationAsString = new Scanner(System.in).nextLine();
 
-			// boucle tant que "combinationAsString" n'est pas une chaine de "combinationLength" chiffres.
+			// boucle tant que "combinationAsString" n'est pas une chaine de "combinationLength"; chiffres testés avec une expression régulière (regex).
 		} while (!combinationAsString.matches("[0-9]{" + m_config.getCombinationLength() + "}+"));
 
 		// Création d'un tableau qui contient autant d'entrées que ce que retourne la méthode getCombinationLength()
