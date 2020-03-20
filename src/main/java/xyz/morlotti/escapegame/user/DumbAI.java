@@ -18,7 +18,7 @@ public class DumbAI extends AI
 	// Propose une combinaison depuis le clavier ou par l'IA selon l'implémentation
 	public int[] guessCombination(int[] comparison)
 	{
-		int rand = new Random().nextInt(100);
+		int rand = new Random().nextInt(100); // tirage d'un nombre aléatoire entre 0 et 100
 
 		if (rand < m_smartPercent)
 		{

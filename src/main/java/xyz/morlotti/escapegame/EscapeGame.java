@@ -40,21 +40,21 @@ public class EscapeGame
                     m_logger.info(LogMessage.NEW_DEFENDER);
                     System.out.println(LogMessage.NEW_DEFENDER_2);
                     mode = new ModeDefender(m_config);
-                    result = mode.start();
+                    result = mode.start(); // retourne qui a gagné
                     break;
 
                 case 2: // Mode challenger
                     m_logger.info(LogMessage.NEW_CHALLENGER);
                     System.out.println(LogMessage.NEW_CHALLENGER_2);
                     mode = new ModeChallenger(m_config);
-                    result = mode.start();
+                    result = mode.start(); // retourne qui a gagné
                     break;
 
                 case 3: // Mode duel
                     m_logger.info(LogMessage.NEW_DUAL);
                     System.out.println(LogMessage.NEW_DUAL_2);
                     mode = new ModeDual(m_config);
-                    result = mode.start();
+                    result = mode.start(); // retourne qui a gagné
                     break;
 
                 case 4: // Fin du jeu
@@ -99,7 +99,7 @@ public class EscapeGame
 
         while(true) // boucle principale
         {
-            if(!showMenu()) // appel de la methode "showMenu" (menu principal)
+            if(!showMenu()) // appel de la methode "showMenu" (menu principal), elle retourne "false" si le jeu est fini
             {
                 break;
             }

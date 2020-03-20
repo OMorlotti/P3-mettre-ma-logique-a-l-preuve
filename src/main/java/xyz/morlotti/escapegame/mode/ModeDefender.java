@@ -11,6 +11,7 @@ import xyz.morlotti.escapegame.user.AbstractUser;
 import xyz.morlotti.escapegame.user.DumbAI;
 import xyz.morlotti.escapegame.user.Human;
 
+// L'IA doit deviner la combinaison proposée par le joueur
 public class ModeDefender extends AbstractMode
 {
     protected final Logger m_logger;
@@ -27,12 +28,13 @@ public class ModeDefender extends AbstractMode
     {
         System.out.println(LogMessage.START_DEFENDER);
 
-        AbstractUser ia = new DumbAI(m_config);
-        AbstractUser human = new Human(m_config);
+        AbstractUser ia = new DumbAI(m_config); // instancie une intelligence artificielle
+        AbstractUser human = new Human(m_config); // instancie un joueur humain
 
-        int[] combination = human.generateCombination();
+        int[] combination = human.generateCombination(); // saisie au clavier par l'utilisateur
 
-        int[] comparison = generateComparison();
+        int[] comparison = generateComparison(); // pour stocker la proximité entre la combinaison proposée par le joueur et
+                                                 // la combinaison à deviner.
 
         m_logger.info(String.format(LogMessage.COMBINATION_AI, m_config.getCombinationLength(), Arrays.toString(combination)));
 

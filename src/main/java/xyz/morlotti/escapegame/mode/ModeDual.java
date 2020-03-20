@@ -23,6 +23,7 @@ public class ModeDual extends AbstractMode
     }
 
     // Démarrage d'une partie en mode duel.
+    // Mode challenger et défendeur en même temps, le premier qui trouve a gagné
     public int start()
     {
         System.out.println(LogMessage.START_DUAL);

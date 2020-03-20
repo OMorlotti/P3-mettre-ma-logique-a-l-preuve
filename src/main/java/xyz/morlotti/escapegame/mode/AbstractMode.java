@@ -24,9 +24,12 @@ abstract public class AbstractMode
         m_logger = Log.getLogger("AbstractMode", config.isDeveloperMode());
     }
 
+    // Méthode abstraite qui démarre une partie et retourne qui a gagné
+    public abstract int start();
+
     // Genère un tableau de "CombinationLength" entrées initialisées à zéro.
     // Le résultat est utilisé par la méthode "playATurn" pour stocker la proximité entre la combinaison du joueur et
-    // la combinaison à deviner.
+    // la combinaison à deviner. -> utilisée par la dichotomie
     protected int[] generateComparison()
     {
         int[] combinationComparison = new int[m_config.getCombinationLength()];
@@ -80,7 +83,4 @@ abstract public class AbstractMode
 
         return false;
     }
-
-    // Méthode abstraite qui démarre une partie
-    public abstract int start();
 }

@@ -40,6 +40,8 @@ public class Config
         logger.info("smartPercent: " + m_smartPercent);
     }
 
+    // Définition des getters
+
     public boolean isDeveloperMode()
     {
         return m_developerMode;
