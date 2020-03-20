@@ -12,9 +12,9 @@ import java.util.InputMismatchException;
 
 public class EscapeGame
 {
-    private Logger m_logger;
+    private final Config m_config = new Config();
 
-    public final Config m_config = new Config();
+    private Logger m_logger = Log.getLogger("EscapeGame", m_config.isDeveloperMode());
 
     // Menu principal
     // Retourne "false" lorsque l'utilisateur souhaiter quitter
@@ -95,13 +95,11 @@ public class EscapeGame
     // Boucle principale du jeux
     public void start()
     {
-        m_config.load();
+        m_config.load(); // lecture du fichier de configuration
 
-        m_logger = Log.getLogger("EscapeGame", m_config.isDeveloperMode());
-
-        while(true)
+        while(true) // boucle principale
         {
-            if(!showMenu())
+            if(!showMenu()) // appel de la methode "showMenu" (menu principal)
             {
                 break;
             }
@@ -110,7 +108,7 @@ public class EscapeGame
 
     public static void main(String[] args)
     {
-        // Création de l'instance "escapeGame" et démarrage du jeux
+        // Création de l'instance "escapeGame", et appel de la méthode "start" : démarrage du jeux.
         new EscapeGame().start();
 
 //      EscapeGame escapeGame = new EscapeGame();
