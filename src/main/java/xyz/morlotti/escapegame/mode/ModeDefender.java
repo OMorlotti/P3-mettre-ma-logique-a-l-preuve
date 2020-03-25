@@ -43,7 +43,7 @@ public class ModeDefender extends AbstractMode
         {
             System.out.println(String.format(LogMessage.ATTEMPT, i + 1));
 
-            if(playATurn(i, ia, combination, comparison))
+            if(playATurnHuman(i, ia, combination, comparison))
             {
                 return AbstractMode.AI_WON;
             }

@@ -43,7 +43,7 @@ public class ModeChallenger extends AbstractMode
 		{
 			System.out.println(String.format(LogMessage.ATTEMPT, i + 1));
 
-			if(playATurn(i, human, combination, comparison))
+			if(playATurnAI(i, human, combination, comparison))
 			{
 				System.out.println(String.format(LogMessage.COMBINATION_WAS, Arrays.toString(combination)));
 

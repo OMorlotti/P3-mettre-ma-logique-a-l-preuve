@@ -25,7 +25,7 @@ et trois classes :
 
 Ce qu'il est requis pour commencer avec votre projet...
 
-  * Assurez-vous que  [Java 8](http://www.oracle.com/technetwork/java/javase/) et [Maven 3](http://maven.apache.org/) sont installés:
+  * Assurez-vous que  [Java 12](http://www.oracle.com/technetwork/java/javase/) et [Maven 3](http://maven.apache.org/) sont installés:
 ```bash
 java -version
 mvn -version

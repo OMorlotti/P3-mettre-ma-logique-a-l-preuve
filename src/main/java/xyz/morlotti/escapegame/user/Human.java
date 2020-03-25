@@ -3,6 +3,7 @@ package xyz.morlotti.escapegame.user;
 import java.util.Scanner;
 
 import xyz.morlotti.escapegame.Config;
+import xyz.morlotti.escapegame.LogMessage;
 
 public class Human extends AbstractUser
 {
@@ -15,7 +16,7 @@ public class Human extends AbstractUser
 	public int[] generateCombination() // combinaison générée par le joueur
 	{
 		return readCombination(
-			"Veuillez saisir la combinaison à " + m_config.getCombinationLength() + " chiffres à faire deviner à l'IA :"
+			String.format(LogMessage.ENTER_CONBINATION_FOR_IA, m_config.getCombinationLength())
 		);
 	}
 
@@ -23,7 +24,7 @@ public class Human extends AbstractUser
 	public int[] guessCombination(int[] comparison) // tentative du joueur
 	{
 		return readCombination(
-			"Veuillez saisir votre tentative de combinaison à " + m_config.getCombinationLength() + " chiffres :"
+			String.format(LogMessage.ENTER_YOUR_CONBINATION, m_config.getCombinationLength())
 		);
 	}
 

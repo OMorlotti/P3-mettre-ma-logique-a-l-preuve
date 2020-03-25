@@ -32,6 +32,12 @@ public class LogMessage
 	public static final String COMBINATION_HUMAN = "Combinaison à %d chiffres à faire deviner à l'utilisateur : %s";
 	public static final String COMBINATION_AI = "Combinaison à %d chiffres à faire deviner à l'IA : %s";
 
+	public static final String ENTER_COMBINATION_COMPARITION = "Veuillez indiquer si les %d chiffres proposés par l'IA sont plus petits (-), plus grands (+) ou égaux (=) à ceux de votre combinaison :";
+	public static final String ENTER_CONBINATION_FOR_IA = "Veuillez saisir la combinaison à %d chiffres à faire deviner à l'IA :";
+	public static final String ENTER_YOUR_CONBINATION = "Veuillez saisir votre tentative de combinaison à %d chiffres :";
+
+	public static final String CHEATING = "Alors, on triche ?.. ;-)";
+
 	public static final String AI_WON = "L'IA a gagnée";
 	public static final String AI_WON_2 = "L'IA a gagnée ;-)\n";
 
