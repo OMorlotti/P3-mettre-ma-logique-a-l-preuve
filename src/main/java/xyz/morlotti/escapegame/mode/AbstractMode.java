@@ -52,6 +52,7 @@ abstract public class AbstractMode
 
         if (newCombination.length == m_config.getCombinationLength())
         {
+            // La varibale "countNumberOfEquals" est déclarée à 0 puis incrémentée dès la condition atteinte
             int countNumberOfEquals = 0;
 
             m_logger.info("Tentative n°" + (attempt + 1) + ": " + Arrays.toString(newCombination));
@@ -77,6 +78,7 @@ abstract public class AbstractMode
 
             System.out.println();
 
+            // Quand "countNumberOfEquals" égale la valeur de "CombinationLength()", l'application retourne true :
             if (countNumberOfEquals == m_config.getCombinationLength())
             {
                 return true;
@@ -132,7 +134,7 @@ abstract public class AbstractMode
                 // Calcul de la vraie différence entre la bonne combinaison et celle proposée par l'IA
                 int diff = combination[j] - newCombination[j];
 
-                // Calcul du signe de la différence
+                // Calcul du signe (positif ou négatif)  de la différence calculée ci-dessus;
                 int sign;
 
                 /**/ if(diff < 0) {
