@@ -52,7 +52,7 @@ abstract public class AbstractMode
 
         if (newCombination.length == m_config.getCombinationLength())
         {
-            int count = 0;
+            int countNumberOfEquals = 0;
 
             m_logger.info("Tentative n°" + (attempt + 1) + ": " + Arrays.toString(newCombination));
 
@@ -71,13 +71,13 @@ abstract public class AbstractMode
                 else
                 {
                     System.out.print("=");
-                    count++;
+                    countNumberOfEquals++;
                 }
             }
 
             System.out.println();
 
-            if (count == m_config.getCombinationLength())
+            if (countNumberOfEquals == m_config.getCombinationLength())
             {
                 return true;
             }
@@ -94,8 +94,9 @@ abstract public class AbstractMode
 
         if (newCombination.length == m_config.getCombinationLength())
         {
-            int count = 0;
+            int countNumberOfEquals = 0;
 
+            // Détection de la tricherie (voir infra)
             boolean isCheating = false;
 
             m_logger.info("Tentative n°" + (attempt + 1) + ": " + Arrays.toString(newCombination));
@@ -125,11 +126,13 @@ abstract public class AbstractMode
                 else
                 {
                     comparison[j] = 0;
-                    count++;
+                    countNumberOfEquals++;
                 }
 
+                // Calcul de la vraie différence entre la bonne combinaison et celle proposée par l'IA
                 int diff = combination[j] - newCombination[j];
 
+                // Calcul du signe de la différence
                 int sign;
 
                 /**/ if(diff < 0) {
@@ -142,6 +145,7 @@ abstract public class AbstractMode
                     sign = 0;
                 }
 
+                // Détecte la tricherie : si la vraie différence n'a pas le même signe que celui indiqué à l'utilisateur, il y a triche
                 if(comparison[j] != sign)
                 {
                     isCheating = true;
@@ -153,7 +157,7 @@ abstract public class AbstractMode
                 System.out.println(LogMessage.CHEATING);
             }
 
-            if (count == m_config.getCombinationLength())
+            if (countNumberOfEquals == m_config.getCombinationLength())
             {
                 return true;
             }
