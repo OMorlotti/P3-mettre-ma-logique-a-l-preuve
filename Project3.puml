@@ -15,6 +15,10 @@ class Log {
 getLogger(String name, boolean isDeveloperMode): Logger
 }
 
+class LogMessage {
+
+}
+
 abstract class AbstractMode {
 m_config: Config
 m_logger: Logger
@@ -79,9 +83,6 @@ AbstractUser <|--- Human
 AI <|--- DumbAI
 
 EscapeGame -- AbstractMode
-EscapeGame -- Log
-
-EscapeGame *-- Config
 
 ModeChallenger -- AbstractUser
 ModeDefender -- AbstractUser

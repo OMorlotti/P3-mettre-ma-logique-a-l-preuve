@@ -47,6 +47,7 @@ public class LogMessage
 	public static final String NOBODY_WON = "Tout le monde a perdu";
 	public static final String NOBODY_WON_2 = "Oups... Tout le monde a perdu :-(\n";
 
+													// %d pour remplacer par un "int" avec "String.format()"
 	public static final String ATTEMPT = "Tentative n°%d";
 
 	public static final String COMBINATION_WAS = "La combinaison à trouver était %s";
